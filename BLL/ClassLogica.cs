@@ -117,5 +117,30 @@ namespace BLL
         {
             _promocion.UpdateDeleteQuery(id);
         }
+
+        public DataTable listarEmpleados()
+        {
+            return _empleado.GetDataByActivo();
+        }
+
+        public DataTable listarRoles()
+        {
+            return _rolEmpleado.GetDataByActivo();
+        }
+
+        public void InsertEmpleado(string cui, string nombre, string apellido, string direccion, int tel, int rol)
+        {
+            _empleado.Insert(cui, nombre, apellido, direccion, tel, 1, rol);
+        }
+
+        public void actualizarEmpleado(string cui, string nombre, string apellido, string direccion, int tel, int rol, string original_cui)
+        {
+            _empleado.UpdateQuery(cui, nombre, apellido, direccion, tel, 1, rol, original_cui);
+        }
+
+        public void eliminarEmpleado(string cui)
+        {
+            _empleado.UpdateDeleteQuery(cui);
+        }
     }
 }

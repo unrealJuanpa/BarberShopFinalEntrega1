@@ -366,7 +366,7 @@ WHERE (Promocion.Activo = 1)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDeleteQuery" Modifier="Public" Name="UpdateDeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateDeleteQuery">
+              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDeleteQuery" Modifier="Public" Name="UpdateDeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateDeleteQuery">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [dbo].[Promocion] SET [Activo] = 0 WHERE ([IdPromocion] = @Original_IdPromocion)</CommandText>
@@ -376,7 +376,7 @@ WHERE (Promocion.Activo = 1)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery">
+              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [dbo].[Promocion] SET [Nombre] = @Nombre, [ProcentajeDescuento] = @ProcentajeDescuento, [Descripcion] = @Descripcion, [FechaHoraInicio] = @FechaHoraInicio, [FechaHoraFin] = @FechaHoraFin, [Activo] = @Activo, [IdTratamiento] = @IdTratamiento WHERE ([IdPromocion] = @Original_IdPromocion)</CommandText>
@@ -448,7 +448,16 @@ SELECT IdRol, Nombre, Descripcion, Activo FROM RolEmpleado WHERE (IdRol = @IdRol
               <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
               <Mapping SourceColumn="Activo" DataSetColumn="Activo" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.RolEmpleado" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdRol, Nombre, Descripcion, Activo FROM dbo.RolEmpleado Where Activo = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmpleadoTableAdapter" GeneratorDataComponentClassName="EmpleadoTableAdapter" Name="Empleado" UserDataComponentName="EmpleadoTableAdapter">
             <MainSource>
@@ -524,6 +533,14 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol
               <Mapping SourceColumn="IdRol" DataSetColumn="IdRol" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.Empleado" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol FROM dbo.Empleado Where Activo = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.Empleado" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryVerifyLogin" Modifier="Public" Name="ScalarQueryVerifyLogin" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ScalarQueryVerifyLogin">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -533,6 +550,33 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDeleteQuery" Modifier="Public" Name="UpdateDeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateDeleteQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[Empleado] SET [Activo] = 0 WHERE ([CUI] = @Original_CUI) </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_CUI" ColumnName="CUI" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Empleado" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@Original_CUI" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="CUI" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[Empleado] SET [CUI] = @CUI, [NombreEmpleado] = @NombreEmpleado, [ApellidoEmpleado] = @ApellidoEmpleado, [Direccion] = @Direccion, [Telefono] = @Telefono, [Activo] = @Activo, [IdRol] = @IdRol WHERE ([CUI] = @Original_CUI)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CUI" ColumnName="CUI" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Empleado" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@CUI" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="CUI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NombreEmpleado" ColumnName="NombreEmpleado" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Empleado" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@NombreEmpleado" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="NombreEmpleado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ApellidoEmpleado" ColumnName="ApellidoEmpleado" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Empleado" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@ApellidoEmpleado" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="ApellidoEmpleado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Direccion" ColumnName="Direccion" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Empleado" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@Direccion" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Direccion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Telefono" ColumnName="Telefono" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Empleado" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Telefono" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Telefono" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Activo" ColumnName="Activo" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Empleado" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Activo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Activo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="IdRol" ColumnName="IdRol" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Empleado" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdRol" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdRol" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_CUI" ColumnName="CUI" DataSourceName="[C:\USERS\JUANP\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Empleado" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@Original_CUI" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="CUI" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
               </DbSource>
             </Sources>
           </TableAdapter>

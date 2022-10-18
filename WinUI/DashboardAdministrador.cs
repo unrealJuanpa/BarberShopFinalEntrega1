@@ -68,5 +68,11 @@ namespace WinUI
             PromocionForm form = new PromocionForm();
             form.ShowDialog();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            EmpleadosForm form = new EmpleadosForm();
+            form.ShowDialog();
+        }
     }
 }

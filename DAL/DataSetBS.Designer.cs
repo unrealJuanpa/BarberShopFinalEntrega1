@@ -7540,11 +7540,15 @@ SELECT IdRol, Nombre, Descripcion, Activo FROM RolEmpleado WHERE (IdRol = @IdRol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IdRol, Nombre, Descripcion, Activo FROM dbo.RolEmpleado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IdRol, Nombre, Descripcion, Activo FROM dbo.RolEmpleado Where Activo = 1";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7566,6 +7570,17 @@ SELECT IdRol, Nombre, Descripcion, Activo FROM RolEmpleado WHERE (IdRol = @IdRol
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBS.RolEmpleadoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBS.RolEmpleadoDataTable dataTable = new DataSetBS.RolEmpleadoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBS.RolEmpleadoDataTable GetDataByActivo() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBS.RolEmpleadoDataTable dataTable = new DataSetBS.RolEmpleadoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -7901,7 +7916,7 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol " +
@@ -7909,9 +7924,33 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT IdRol FROM Empleado Where (CUI like @CUI) and (Activo = 1)";
+            this._commandCollection[1].CommandText = "SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol " +
+                "FROM dbo.Empleado Where Activo = 1";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUI", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "CUI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT IdRol FROM Empleado Where (CUI like @CUI) and (Activo = 1)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUI", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "CUI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE [dbo].[Empleado] SET [Activo] = 0 WHERE ([CUI] = @Original_CUI) ";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CUI", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "CUI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE [dbo].[Empleado] SET [CUI] = @CUI, [NombreEmpleado] = @NombreEmpleado, [Ap" +
+                "ellidoEmpleado] = @ApellidoEmpleado, [Direccion] = @Direccion, [Telefono] = @Tel" +
+                "efono, [Activo] = @Activo, [IdRol] = @IdRol WHERE ([CUI] = @Original_CUI)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUI", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "CUI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NombreEmpleado", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "NombreEmpleado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApellidoEmpleado", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "ApellidoEmpleado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Direccion", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "Direccion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telefono", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Telefono", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Activo", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Activo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdRol", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdRol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CUI", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "CUI", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7933,6 +7972,17 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetBS.EmpleadoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetBS.EmpleadoDataTable dataTable = new DataSetBS.EmpleadoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetBS.EmpleadoDataTable GetDataByActivo() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBS.EmpleadoDataTable dataTable = new DataSetBS.EmpleadoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8174,7 +8224,7 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<int> ScalarQueryVerifyLogin(string CUI) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((CUI == null)) {
                 throw new global::System.ArgumentNullException("CUI");
             }
@@ -8202,6 +8252,96 @@ SELECT CUI, NombreEmpleado, ApellidoEmpleado, Direccion, Telefono, Activo, IdRol
             else {
                 return new global::System.Nullable<int>(((int)(returnValue)));
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateDeleteQuery(string Original_CUI) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((Original_CUI == null)) {
+                throw new global::System.ArgumentNullException("Original_CUI");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Original_CUI));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(string CUI, string NombreEmpleado, string ApellidoEmpleado, string Direccion, int Telefono, int Activo, global::System.Nullable<int> IdRol, string Original_CUI) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((CUI == null)) {
+                throw new global::System.ArgumentNullException("CUI");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(CUI));
+            }
+            if ((NombreEmpleado == null)) {
+                throw new global::System.ArgumentNullException("NombreEmpleado");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(NombreEmpleado));
+            }
+            if ((ApellidoEmpleado == null)) {
+                throw new global::System.ArgumentNullException("ApellidoEmpleado");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(ApellidoEmpleado));
+            }
+            if ((Direccion == null)) {
+                throw new global::System.ArgumentNullException("Direccion");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Direccion));
+            }
+            command.Parameters[4].Value = ((int)(Telefono));
+            command.Parameters[5].Value = ((int)(Activo));
+            if ((IdRol.HasValue == true)) {
+                command.Parameters[6].Value = ((int)(IdRol.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CUI == null)) {
+                throw new global::System.ArgumentNullException("Original_CUI");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(Original_CUI));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
