@@ -28,5 +28,10 @@ namespace BLL
             _articulo = new ArticuloTableAdapter();
             _retiroBodega = new RetiroBodegaTableAdapter();
         }
+
+        public int VerifyLogin(string cui)
+        {
+            return (int)_empleado.ScalarQueryVerifyLogin(cui);
+        }
     }
 }

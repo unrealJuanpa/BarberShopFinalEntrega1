@@ -146,6 +146,33 @@
             "rid": "win"
           }
         }
+      },
+      "BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DAL": "1.0.0",
+          "System.Data.SqlClient": "4.8.4"
+        },
+        "compile": {
+          "bin/placeholder/BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BLL.dll": {}
+        }
+      },
+      "DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.8.4"
+        },
+        "compile": {
+          "bin/placeholder/DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAL.dll": {}
+        }
       }
     }
   },
@@ -462,10 +489,21 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "BLL/1.0.0": {
+      "type": "project",
+      "path": "../BLL/BLL.csproj",
+      "msbuildProject": "../BLL/BLL.csproj"
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "path": "../DAL/DAL.csproj",
+      "msbuildProject": "../DAL/DAL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "BLL >= 1.0.0",
       "System.Data.SqlClient >= 4.8.4"
     ]
   },
@@ -495,7 +533,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\juanp\\source\\repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\juanp\\source\\repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
