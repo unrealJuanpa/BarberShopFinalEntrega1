@@ -82,5 +82,20 @@ namespace BLL
         {
             _tipoTratamiento.UpdateDeleteQuery(id);
         }
+
+        public DataTable ListarClientes()
+        {
+            return _cliente.GetDataByActivo();
+        }
+
+        public void ActualizarCliente(string nombre, string apellido, int tel, int id)
+        {
+            _cliente.UpdateQueryCliente(nombre, apellido, tel, 1, id);
+        }
+
+        public void EliminarCliente(int id)
+        {
+            _cliente.UpdateDeleteQuery(id);
+        }
     }
 }
