@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace WinUI
 {
     public partial class PromocionClienteForm : Form
     {
+        ClassLogica logica = new ClassLogica();
+
         public PromocionClienteForm()
         {
             InitializeComponent();
+        }
+
+        private void PromocionClienteForm_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = logica.listarPromociones();
+            dataGridView1.Refresh();
         }
     }
 }
