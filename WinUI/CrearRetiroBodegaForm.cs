@@ -16,5 +16,10 @@ namespace WinUI
         {
             InitializeComponent();
         }
+
+        private void CrearRetiroBodegaForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

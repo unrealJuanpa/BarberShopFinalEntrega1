@@ -162,5 +162,15 @@ namespace BLL
         {
             _proveedor.UpdateDeleteQuery(id);
         }
+
+        public void InsertRegistroAplicacion(DateTime fechah, double costofinal, int tratamiento, int cliente, string cui)
+        {
+            _registroAplicacion.Insert(fechah, costofinal, 1, tratamiento, cliente, cui);
+        }
+
+        public DataTable ListarRegistroAplicacion()
+        {
+            return _registroAplicacion.GetData();
+        }
     }
 }
