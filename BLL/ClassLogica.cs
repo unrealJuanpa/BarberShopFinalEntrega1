@@ -107,5 +107,10 @@ namespace BLL
         {
             return _promocion.GetDataByActivo();
         }
+
+        public void actualizarPromocion(string nombre, int porcentaje, string desc, DateTime fi, DateTime ff, int tratamiento, int id)
+        {
+            _promocion.UpdateQuery(nombre, porcentaje, desc, fi, ff, 1, tratamiento, id);
+        }
     }
 }

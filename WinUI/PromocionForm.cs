@@ -78,5 +78,79 @@ namespace WinUI
                 messageManager.ShowError("Recuerde ingresar campos válidos!");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (button2.Text == "Actualizar")
+            {
+                try
+                {
+                    int idprom = (int)programUtils.getFieldOfSelectedCell(dataGridView1, 0);
+
+                    if (idprom > -1)
+                    {
+                        textBox1.Text = (string)programUtils.getFieldOfSelectedCell(dataGridView1, 1);
+                        textBox2.Text = (int)programUtils.getFieldOfSelectedCell(dataGridView1, 2) + "";
+                        textBox3.Text = (string)programUtils.getFieldOfSelectedCell(dataGridView1, 3);
+                        dateTimePicker1.Value = (DateTime)programUtils.getFieldOfSelectedCell(dataGridView1, 4);
+                        dateTimePicker2.Value = (DateTime)programUtils.getFieldOfSelectedCell(dataGridView1, 5);
+
+                        for (int i = 0; i < comboBox1.Items.Count; i++)
+                        {
+                            int id1 = (int)programUtils.getItemOfRowComboBox(comboBox1, i, 0);
+                            int id2 = (int)programUtils.getFieldOfSelectedCell(dataGridView1, 7);
+
+                            if (id1 == id2)
+                            {
+                                comboBox1.SelectedIndex = i;
+                                break;
+                            }
+
+                        }
+
+                        button2.Text = "Salvar";
+
+                        dataGridView1.Enabled = false;
+                        button3.Enabled = false;
+                        button4.Enabled = false;
+                    }
+                    else
+                    {
+                        messageManager.ShowError("Debe seleccionar una promoción a editar válida!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    messageManager.ShowError("Algo ha salido mal :c\n\n" + ex.Message);
+                }
+            }
+            else
+            {
+                try
+                {
+                    DataRowView row = (DataRowView)comboBox1.SelectedItem;
+                    int idtrat = (int)row[0];
+
+                    int idprom = (int)programUtils.getFieldOfSelectedCell(dataGridView1, 0);
+
+                    logica.actualizarPromocion(textBox1.Text, Convert.ToInt32(textBox2.Text), textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value, idtrat, idprom);
+                    messageManager.ShowInfo("Cambios guardados con éxito!");
+
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+
+                    button2.Text = "Actualizar";
+                    dataGridView1.Enabled = true;
+                    button3.Enabled = true;
+                    button4.Enabled = true;
+                    refreshGrids();
+                }
+                catch
+                {
+                    messageManager.ShowError("Recuerde ingresar datos válidos!");
+                }
+            }
+        }
     }
 }
