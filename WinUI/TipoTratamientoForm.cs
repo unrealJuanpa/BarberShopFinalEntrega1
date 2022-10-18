@@ -27,17 +27,33 @@ namespace WinUI
         {
             int idx = dataGridView1.SelectedCells[0].RowIndex;
             
-            try
+            if (button2.Text == "Actualizar")
             {
-                int idtrat = (int)dataGridView1.Rows[idx].Cells[0].Value;
+                try
+                {
+                    int idtrat = (int)dataGridView1.Rows[idx].Cells[0].Value;
 
-                textBox1.Text = (string)dataGridView1.Rows[idx].Cells[1].Value;
-                textBox2.Text = dataGridView1.Rows[idx].Cells[2].Value + "";
-                textBox3.Text = dataGridView1.Rows[idx].Cells[3].Value + "";
+                    textBox1.Text = (string)dataGridView1.Rows[idx].Cells[1].Value;
+                    textBox2.Text = dataGridView1.Rows[idx].Cells[2].Value + "";
+                    textBox3.Text = dataGridView1.Rows[idx].Cells[3].Value + "";
+                    button2.Text = "Guardar cambios";
+                    dataGridView1.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    messageManager.ShowError("No ha seleccionado ningún ítem a editar!");
+                }
             }
-            catch (Exception ex)
+            else
             {
-                messageManager.ShowError("No ha seleccionado ningún ítem a editar!" + ex.Message);
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+                    messageManager.ShowError(ex.Message);
+                }
             }
         }
 
