@@ -25,7 +25,20 @@ namespace WinUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int idx = dataGridView1.SelectedCells[0].RowIndex;
+            
+            try
+            {
+                int idtrat = (int)dataGridView1.Rows[idx].Cells[0].Value;
 
+                textBox1.Text = (string)dataGridView1.Rows[idx].Cells[1].Value;
+                textBox2.Text = dataGridView1.Rows[idx].Cells[2].Value + "";
+                textBox3.Text = dataGridView1.Rows[idx].Cells[3].Value + "";
+            }
+            catch (Exception ex)
+            {
+                messageManager.ShowError("No ha seleccionado ningún ítem a editar!" + ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
