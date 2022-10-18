@@ -62,5 +62,11 @@ namespace WinUI
             TipoTratamientoForm form = new TipoTratamientoForm();
             form.ShowDialog();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            PromocionForm form = new PromocionForm();
+            form.ShowDialog();
+        }
     }
 }

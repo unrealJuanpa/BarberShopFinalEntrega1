@@ -97,5 +97,15 @@ namespace BLL
         {
             _cliente.UpdateDeleteQuery(id);
         }
+
+        public void InsertPromocion(string nombre, int porcentaje, string desc, DateTime fi, DateTime ff, int tratamiento)
+        {
+            _promocion.Insert(nombre, porcentaje, desc, fi, ff, 1, tratamiento);
+        }
+
+        public DataTable listarPromociones()
+        {
+            return _promocion
+        }
     }
 }
