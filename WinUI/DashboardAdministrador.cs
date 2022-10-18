@@ -52,5 +52,11 @@ namespace WinUI
             InformeDePromocionesForm informeDePromocionesForm = new InformeDePromocionesForm();
             informeDePromocionesForm.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TipoTratamientoForm form = new TipoTratamientoForm();
+            form.ShowDialog();
+        }
     }
 }
