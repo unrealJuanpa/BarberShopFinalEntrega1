@@ -27,6 +27,7 @@ namespace WinUI
             {
                 logica.InsertCliente(textBox1.Text, textBox2.Text, Convert.ToInt32(textBox3.Text));
                 messageManager.ShowInfo("Cliente agregado con éxito!");
+                this.Dispose();
             }
             catch (Exception ex)
             {
