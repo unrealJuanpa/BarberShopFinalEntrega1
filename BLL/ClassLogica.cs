@@ -73,7 +73,7 @@ namespace BLL
             return _tipoTratamiento.GetDataByActivo();
         }
 
-        public void ActualizarTratamiento(string nombre, int duracion, double costo, byte[] img, int id)
+        public void UpdateTratamiento(string nombre, int duracion, double costo, byte[] img, int id)
         {
             _tipoTratamiento.UpdateQuery(nombre, duracion, costo, img, 1, id);
         }

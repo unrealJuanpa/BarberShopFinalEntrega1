@@ -32,14 +32,16 @@ namespace WinUI
                 try
                 {
                     int idtrat = (int)dataGridView1.Rows[idx].Cells[0].Value;
-
                     textBox1.Text = (string)dataGridView1.Rows[idx].Cells[1].Value;
                     textBox2.Text = dataGridView1.Rows[idx].Cells[2].Value + "";
                     textBox3.Text = dataGridView1.Rows[idx].Cells[3].Value + "";
                     button2.Text = "Guardar cambios";
                     dataGridView1.Enabled = false;
+
+                    button4.Enabled = false;
+                    button3.Enabled = false;
                 }
-                catch (Exception ex)
+                catch (System.NullReferenceException ex)
                 {
                     messageManager.ShowError("No ha seleccionado ningún ítem a editar!");
                 }
@@ -48,7 +50,33 @@ namespace WinUI
             {
                 try
                 {
+                    Image i = pictureBox1.Image;
+                    byte[] img;
 
+                    using (var ms = new MemoryStream())
+                    {
+                        i.Save(ms, i.RawFormat);
+                        img = ms.ToArray();
+                    }
+
+                    int idtrat = (int)dataGridView1.Rows[idx].Cells[0].Value;
+                    logica.UpdateTratamiento(textBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToDouble(textBox3.Text), img, idtrat);
+
+                    messageManager.ShowInfo("Tratamiento actualizado con éxito!");
+                    dataGridView1.Enabled = true;
+
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+
+                    pictureBox1.Image = null;
+
+                    button4.Enabled = true;
+                    button3.Enabled = true;
+
+                    button2.Text = "Actualizar";
+
+                    refreshgrid();
                 }
                 catch (Exception ex)
                 {
@@ -134,10 +162,15 @@ namespace WinUI
                 //
                 //set picture
                 pictureBox1.Image = newImage;
+
+                button2.Enabled = true;
+                button3.Enabled = true;
             }
             catch
             {
                 pictureBox1.Image = null;
+                button2.Enabled = false;
+                button3.Enabled = false;
             }
         }
     }
