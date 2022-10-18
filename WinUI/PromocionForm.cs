@@ -16,6 +16,7 @@ namespace WinUI
     {
         ClassLogica logica = new ClassLogica();
         MessageManager messageManager = new MessageManager();
+        MyProgramUtils programUtils = new MyProgramUtils();
 
         public PromocionForm()
         {
@@ -35,6 +36,8 @@ namespace WinUI
             comboBox1.DataSource = logica.ListarTratamientos();
             comboBox1.DisplayMember = "Nombre";
             comboBox1.Refresh();
+
+            refreshGrids();
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
@@ -49,7 +52,10 @@ namespace WinUI
 
         void refreshGrids()
         {
-            dataGridView1.DataSource = 
+            dataGridView1.DataSource = logica.listarPromociones();
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
+            dataGridView1.Refresh();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -61,8 +67,13 @@ namespace WinUI
 
                 logica.InsertPromocion(textBox1.Text, Convert.ToInt32(textBox2.Text), textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value, idtrat);
                 messageManager.ShowInfo("Promoción agregada con éxito!");
+                refreshGrids();
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
             }
-            catch
+            catch (Exception ex)
             {
                 messageManager.ShowError("Recuerde ingresar campos válidos!");
             }

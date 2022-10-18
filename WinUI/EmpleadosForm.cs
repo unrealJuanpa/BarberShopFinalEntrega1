@@ -16,5 +16,10 @@ namespace WinUI
         {
             InitializeComponent();
         }
+
+        private void EmpleadosForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

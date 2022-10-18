@@ -7058,9 +7058,10 @@ SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, F
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT P.IdPromocion, P.Nombre, P.ProcentajeDescuento, P.Descripcion, P.FechaHora" +
-                "Inicio, P.FechaHoraFin, P.Activo, P.IdTratamiento, T.Nombre FROM dbo.Promocion a" +
-                "s P, dbo.TipoTratamiento as T Where (P.Activo=1)";
+            this._commandCollection[1].CommandText = @"SELECT Promocion.IdPromocion, Promocion.Nombre, Promocion.ProcentajeDescuento, Promocion.Descripcion, Promocion.FechaHoraInicio, Promocion.FechaHoraFin, Promocion.Activo, Promocion.IdTratamiento, TipoTratamiento.Nombre AS Tratamiento
+FROM   Promocion INNER JOIN
+             TipoTratamiento ON Promocion.IdTratamiento = TipoTratamiento.IdTratamiento
+WHERE (Promocion.Activo = 1)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7092,7 +7093,7 @@ SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, F
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSetBS.PromocionDataTable GetDataByEnabled() {
+        public virtual DataSetBS.PromocionDataTable GetDataByActivo() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetBS.PromocionDataTable dataTable = new DataSetBS.PromocionDataTable();
             this.Adapter.Fill(dataTable);

@@ -105,7 +105,7 @@ namespace BLL
 
         public DataTable listarPromociones()
         {
-            return _promocion
+            return _promocion.GetDataByActivo();
         }
     }
 }
