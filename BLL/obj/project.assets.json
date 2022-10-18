@@ -146,6 +146,19 @@
             "rid": "win"
           }
         }
+      },
+      "DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.8.4"
+        },
+        "compile": {
+          "bin/placeholder/DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAL.dll": {}
+        }
       }
     }
   },
@@ -462,10 +475,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "path": "../DAL/DAL.csproj",
+      "msbuildProject": "../DAL/DAL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DAL >= 1.0.0",
       "System.Data.SqlClient >= 4.8.4"
     ]
   },
@@ -495,7 +514,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\juanp\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\juanp\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
