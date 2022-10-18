@@ -22,5 +22,10 @@ namespace WinUI
         {
             MessageBox.Show(msg, "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        public bool AskConfirmation(string msg)
+        {
+            return MessageBox.Show(msg, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+        }
     }
 }

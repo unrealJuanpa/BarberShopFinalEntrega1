@@ -77,5 +77,10 @@ namespace BLL
         {
             _tipoTratamiento.UpdateQuery(nombre, duracion, costo, img, 1, id);
         }
+
+        public void EliminarTratamiento(int id)
+        {
+            _tipoTratamiento.UpdateDeleteQuery(id);
+        }
     }
 }

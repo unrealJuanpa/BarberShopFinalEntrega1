@@ -173,5 +173,20 @@ namespace WinUI
                 button3.Enabled = false;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int idx = dataGridView1.SelectedCells[0].RowIndex;
+            int idtrat = (int)dataGridView1.Rows[idx].Cells[0].Value;
+
+            bool res = messageManager.AskConfirmation("Desea eliminar el elemento seleccionado?");
+
+            if (res)
+            {
+                logica.EliminarTratamiento(idtrat);
+                messageManager.ShowInfo("Elemento eliminado con éxito!");
+                refreshgrid();
+            }
+        }
     }
 }
