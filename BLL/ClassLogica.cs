@@ -112,5 +112,10 @@ namespace BLL
         {
             _promocion.UpdateQuery(nombre, porcentaje, desc, fi, ff, 1, tratamiento, id);
         }
+
+        public void eliminarPromocion(int id)
+        {
+            _promocion.UpdateDeleteQuery(id);
+        }
     }
 }

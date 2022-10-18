@@ -152,5 +152,27 @@ namespace WinUI
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idprom = (int)programUtils.getFieldOfSelectedCell(dataGridView1, 0);
+
+                if (idprom > -1)
+                {
+                    if (messageManager.AskConfirmation("Esta seguro que desea eliminar el elemento seleccionado?"))
+                    {
+                        logica.eliminarPromocion(idprom);
+                        messageManager.ShowInfo("Promocion eliminada con éxito!");
+                        refreshGrids();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                messageManager.ShowError(ex.Message);
+            }
+        }
     }
 }
