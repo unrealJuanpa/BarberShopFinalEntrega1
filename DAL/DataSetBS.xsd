@@ -70,7 +70,16 @@ SELECT IdTratamiento, Nombre, DuracionHoras, Costo, Imagen, Activo FROM TipoTrat
               <Mapping SourceColumn="Imagen" DataSetColumn="Imagen" />
               <Mapping SourceColumn="Activo" DataSetColumn="Activo" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.TipoTratamiento" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdTratamiento, Nombre, DuracionHoras, Costo, Imagen, Activo FROM dbo.TipoTratamiento Where Activo=1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClienteTableAdapter" GeneratorDataComponentClassName="ClienteTableAdapter" Name="Cliente" UserDataComponentName="ClienteTableAdapter">
             <MainSource>

@@ -1,4 +1,5 @@
 ﻿using DAL.DataSetBSTableAdapters;
+using System.Data;
 
 namespace BLL
 {
@@ -65,6 +66,11 @@ namespace BLL
         {
             byte[] img = ReadFile(imgpath);
             _tipoTratamiento.Insert(nombre, duracion, costo, img, 1);
+        }
+
+        public DataTable ListarTratamientos()
+        {
+            return _tipoTratamiento.GetDataByActivo();
         }
     }
 }

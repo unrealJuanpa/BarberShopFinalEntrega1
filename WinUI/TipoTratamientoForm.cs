@@ -50,9 +50,17 @@ namespace WinUI
             }
         }
 
+        void refreshgrid()
+        {
+            dataGridView1.DataSource = logica.ListarTratamientos();
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Refresh();
+        }
+
         private void TipoTratamientoForm_Load(object sender, EventArgs e)
         {
-            
+            refreshgrid();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -65,11 +73,17 @@ namespace WinUI
                 textBox2.Text = "";
                 textBox3.Text = "";
                 pictureBox1.Image = null;
+                refreshgrid();
             }
             catch (Exception err)
             {
                 messageManager.ShowError("Recuerde seleccionar una imágen válida y completar los campos existentes!");
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
