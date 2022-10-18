@@ -26,7 +26,7 @@ namespace WinUI
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Image Files|*.jpg|*.jpeg|*.png";
+            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.png) |*.jpg; *.jpeg; *.png";
             openFileDialog1.Multiselect = false;
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             
@@ -35,7 +35,7 @@ namespace WinUI
                 string file = openFileDialog1.FileName;
                 try
                 {
-                    MessageBox.Show(file);
+                    pictureBox1.Image = Image.FromFile(file);
                 }
                 catch (IOException)
                 {
