@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace WinUI
 {
     public partial class DashboardAdministrador : Form
     {
+        ClassLogica logica = new ClassLogica();
+        MessageManager messageManager = new MessageManager();
+
         public DashboardAdministrador()
         {
             InitializeComponent();

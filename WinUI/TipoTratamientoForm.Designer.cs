@@ -150,6 +150,7 @@
             this.button4.TabIndex = 15;
             this.button4.Text = "Nuevo";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -267,6 +268,7 @@
             this.Name = "TipoTratamientoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tipo de Tratamiento";
+            this.Load += new System.EventHandler(this.TipoTratamientoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

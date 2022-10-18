@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,10 @@ namespace WinUI
 {
     public partial class TipoTratamientoForm : Form
     {
+        ClassLogica logica = new ClassLogica();
+        MessageManager messageManager = new MessageManager();
+        string filepath = "";
+
         public TipoTratamientoForm()
         {
             InitializeComponent();
@@ -36,10 +41,34 @@ namespace WinUI
                 try
                 {
                     pictureBox1.Image = Image.FromFile(file);
+                    filepath = file + "";
                 }
-                catch (IOException)
+                catch (IOException err)
                 {
+                    messageManager.ShowError("Algo ha salido mal :c\n\nDescripción:\n" + err.Message);
                 }
+            }
+        }
+
+        private void TipoTratamientoForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                logica.InsertTratamiento(textBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToDouble(textBox3.Text), filepath);
+                messageManager.ShowInfo("Tratamiento agregado con éxito!");
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                pictureBox1.Image = null;
+            }
+            catch (Exception err)
+            {
+                messageManager.ShowError("Recuerde seleccionar una imágen válida y completar los campos existentes!");
             }
         }
     }

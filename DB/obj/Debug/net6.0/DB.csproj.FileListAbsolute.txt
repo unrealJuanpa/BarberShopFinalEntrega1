@@ -1,0 +1,12 @@
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\bin\Debug\net6.0\DB.deps.json
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\bin\Debug\net6.0\DB.dll
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\bin\Debug\net6.0\DB.pdb
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\obj\Debug\net6.0\DB.csproj.AssemblyReference.cache
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\obj\Debug\net6.0\DB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\obj\Debug\net6.0\DB.AssemblyInfoInputs.cache
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\obj\Debug\net6.0\DB.AssemblyInfo.cs
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\obj\Debug\net6.0\DB.csproj.CoreCompileInputs.cache
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\obj\Debug\net6.0\DB.dll
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\obj\Debug\net6.0\refint\DB.dll
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\obj\Debug\net6.0\DB.pdb
+C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\obj\Debug\net6.0\ref\DB.dll
