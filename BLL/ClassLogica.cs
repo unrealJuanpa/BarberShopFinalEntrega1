@@ -33,5 +33,10 @@ namespace BLL
         {
             return (int)_empleado.ScalarQueryVerifyLogin(cui);
         }
+
+        public void InsertCliente(string nombre, string apellido, int tel)
+        {
+            _cliente.Insert(nombre, apellido, tel, 1);
+        }
     }
 }
