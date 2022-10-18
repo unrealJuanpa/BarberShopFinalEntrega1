@@ -74,5 +74,11 @@ namespace WinUI
             EmpleadosForm form = new EmpleadosForm();
             form.ShowDialog();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            ProveedoresForm form = new ProveedoresForm();
+            form.ShowDialog();
+        }
     }
 }

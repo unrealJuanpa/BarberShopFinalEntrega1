@@ -142,5 +142,25 @@ namespace BLL
         {
             _empleado.UpdateDeleteQuery(cui);
         }
+
+        public DataTable listarProveedores()
+        {
+            return _proveedor.GetDataByActivo();
+        }
+
+        public void InsertProveedor(string nombre, int telefono)
+        {
+            _proveedor.Insert(nombre, telefono, 1);
+        }
+
+        public void ActualizarProveedor(string nombre, int telefono, int id)
+        {
+            _proveedor.UpdateQuery(nombre, telefono, 1, id);
+        }
+
+        public void EliminarProveedor(int id)
+        {
+            _proveedor.UpdateDeleteQuery(id);
+        }
     }
 }
