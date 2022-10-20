@@ -34,5 +34,10 @@ namespace WinUI
             CrearRetiroBodegaForm crearRetiroBodegaForm = new CrearRetiroBodegaForm();
             crearRetiroBodegaForm.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

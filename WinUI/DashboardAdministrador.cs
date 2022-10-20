@@ -80,5 +80,10 @@ namespace WinUI
             ProveedoresForm form = new ProveedoresForm();
             form.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

@@ -39,6 +39,7 @@ namespace WinUI
                 {
                     DashboardAdministrador form = new DashboardAdministrador();
                     form.ShowDialog();
+                    textBox1.Text = "";
                 }
                 else
                 {
@@ -46,6 +47,7 @@ namespace WinUI
                     {
                         DashboardEmpleado form = new DashboardEmpleado();
                         form.ShowDialog();
+                        textBox1.Text = "";
                     }
                 }
             }
