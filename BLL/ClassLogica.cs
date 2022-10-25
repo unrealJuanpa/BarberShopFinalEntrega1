@@ -28,6 +28,23 @@ namespace BLL
             _registroCompra = new RegistroCompraTableAdapter();
             _articulo = new ArticuloTableAdapter();
             _retiroBodega = new RetiroBodegaTableAdapter();
+
+            string ipserver = "192.168.43.222";
+            string puerto = "85";
+            //string connectionString = "data source=" + ipserver + "," + puerto + ";Initial Catalog=DATABASEBS;Integrated Security=True;User ID=sa; Password=database;";
+
+            string connectionString = "Data Source=192.168.43.222,85;Initial Catalog=DATABASEBS;User ID=sa; Password=database;";
+
+            _tipoTratamiento.Connection.ConnectionString = connectionString;
+            _cliente.Connection.ConnectionString = connectionString;
+            _registroAplicacion.Connection.ConnectionString = connectionString;
+            _promocion.Connection.ConnectionString = connectionString;
+            _rolEmpleado.Connection.ConnectionString = connectionString;
+            _empleado.Connection.ConnectionString = connectionString;
+            _proveedor.Connection.ConnectionString = connectionString;
+            _registroCompra.Connection.ConnectionString = connectionString;
+            _articulo.Connection.ConnectionString = connectionString;
+            _retiroBodega.Connection.ConnectionString = connectionString;
         }
 
         public int VerifyLogin(string cui)
