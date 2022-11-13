@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj": {}
+    "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj": {
+    "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",

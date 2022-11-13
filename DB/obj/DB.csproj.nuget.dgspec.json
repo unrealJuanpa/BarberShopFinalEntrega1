@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DB\\DB.csproj": {}
+    "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DB\\DB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DB\\DB.csproj": {
+    "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DB\\DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DB\\DB.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DB\\DB.csproj",
         "projectName": "DB",
-        "projectPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DB\\DB.csproj",
+        "projectPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DB\\DB.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DB\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",

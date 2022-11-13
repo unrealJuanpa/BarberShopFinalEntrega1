@@ -513,11 +513,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\WinUI\\WinUI.csproj",
+      "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\WinUI\\WinUI.csproj",
       "projectName": "WinUI",
-      "projectPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\WinUI\\WinUI.csproj",
+      "projectPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\WinUI\\WinUI.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\WinUI\\obj\\",
+      "outputPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\WinUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -534,8 +534,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj"
+            "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj"
             }
           }
         }

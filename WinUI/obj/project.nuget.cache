@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/DStA0a+QD1fbTP84HCqZ4loAlusjlXJDGurteSF0qdQ1dccgoujBiHdp9JUsZcg3oL2R1PhE8U+mkT6H+GoAg==",
+  "dgSpecHash": "XYYGJP4Sat3+LyoX11wG/zJJkN8bOHLJCo9y/3+pOC4v+3qsT5i8XYJ0DZFIiUN+/2HIvUlEGIpI+F47OakIXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\WinUI\\WinUI.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\WinUI\\WinUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

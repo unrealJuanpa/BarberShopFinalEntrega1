@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UN+vFE1Nw+YjTearMXGts+FUIEbEvkdZA61Yko+Ga5JISx2mGfBsVZvaHnlUgIjJhZbJUs6tfdMqAmFNWW8qsQ==",
+  "dgSpecHash": "6Yyr3H5QPm6Xez/J+vuOwR0vT5DzEi/4JEW1vPZGJd//SIKCDQbFFSgBqZN1MPqSvcgLsid4SOiICdgghWPBvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DB\\DB.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DB\\DB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

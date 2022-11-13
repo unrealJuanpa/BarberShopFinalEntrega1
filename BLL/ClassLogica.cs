@@ -7,27 +7,40 @@ namespace BLL
     {
         TipoTratamientoTableAdapter _tipoTratamiento;
         ClienteTableAdapter _cliente;
-        RegistroAplicacionTableAdapter _registroAplicacion;
         PromocionTableAdapter _promocion;
         RolEmpleadoTableAdapter _rolEmpleado;
         EmpleadoTableAdapter _empleado;
         ProveedorTableAdapter _proveedor;
-        RegistroCompraTableAdapter _registroCompra;
         ArticuloTableAdapter _articulo;
+        RegistroAplicacionTableAdapter _registroAplicacion;
+        RegistroCompraTableAdapter _registroCompra;
+
         RetiroBodegaTableAdapter _retiroBodega;
 
         public ClassLogica()
         {
             _tipoTratamiento = new TipoTratamientoTableAdapter();
             _cliente = new ClienteTableAdapter();
-            _registroAplicacion = new RegistroAplicacionTableAdapter();
             _promocion = new PromocionTableAdapter();
             _rolEmpleado = new RolEmpleadoTableAdapter();
             _empleado = new EmpleadoTableAdapter();
             _proveedor = new ProveedorTableAdapter();
-            _registroCompra = new RegistroCompraTableAdapter();
             _articulo = new ArticuloTableAdapter();
+
+            _registroAplicacion = new RegistroAplicacionTableAdapter();
+            _registroCompra = new RegistroCompraTableAdapter();
             _retiroBodega = new RetiroBodegaTableAdapter();
+
+            _tipoTratamiento.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
+            _cliente.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
+            _registroAplicacion.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
+            _promocion.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
+            _rolEmpleado.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
+            _empleado.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
+            _proveedor.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
+            _registroCompra.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
+            _articulo.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
+            _retiroBodega.Connection.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + Environment.CurrentDirectory.Split("WinUI")[0] + "DB\\DatabaseBS.mdf; Integrated Security = True";
         }
 
         public int VerifyLogin(string cui)
@@ -143,6 +156,7 @@ namespace BLL
             _empleado.UpdateDeleteQuery(cui);
         }
 
+        // -----------------
         public DataTable listarProveedores()
         {
             return _proveedor.GetDataByActivo();
@@ -163,6 +177,8 @@ namespace BLL
             _proveedor.UpdateDeleteQuery(id);
         }
 
+        //--------------------------------------
+
         public void InsertRegistroAplicacion(DateTime fechah, double costofinal, int tratamiento, int cliente, string cui)
         {
             _registroAplicacion.Insert(fechah, costofinal, 1, tratamiento, cliente, cui);
@@ -171,6 +187,71 @@ namespace BLL
         public DataTable ListarRegistroAplicacion()
         {
             return _registroAplicacion.GetData();
+        }
+
+        // ------------------------------------ 
+
+        public DataTable ListarArticulos()
+        {
+            return _articulo.GetDataByActivo();
+        }
+
+        public void InsertArticulo(string Nombre, string Descripcion)
+        {
+            _articulo.Insert(Nombre, Descripcion, 1);
+        }
+
+        public void UpdateArticulo(string Nombre, string Descripcion, int id)
+        {
+           _articulo.UpdateQuery(Nombre, Descripcion, 1, id);
+        }
+
+        public void EliminarArticulo(int id)
+        {
+            _articulo.UpdateDeleteQuery(id);
+        }
+
+        //---------------------------------
+        public DataTable ListarRegistroCompra()
+        {
+            return _registroCompra.GetDataByActivo();
+        }
+
+        public void InsertarRegistroCompra(DateTime FechaHora, int Unidades, double CostoTotal, int Articulo, int Proveedor)
+        {
+            _registroCompra.Insert(FechaHora, Unidades, CostoTotal, 1, Articulo, Proveedor);
+        }
+
+        public void ActualizarRegistroCompra(DateTime FechaHora, int Unidades, double CostoTotal, int Articulo, int Proveedor, int id)
+        {
+            _registroCompra.UpdateQuery(FechaHora, Unidades, CostoTotal, 1, Articulo, Proveedor, id);
+        }
+
+        public void EliminarRegistroCompra(int id)
+        {
+            _registroCompra.UpdateDeleteQuery(id);
+        }
+
+        //-------------------------------------------------
+
+        public DataTable ListarRetiroBodega()
+        {
+            return _retiroBodega.GetDataByActivo();
+        }
+
+        public void InsertarRetiroBodega(int Cantidad, DateTime FechaHora, string cui, int IdArticulo)
+        {
+            _retiroBodega.Insert(Cantidad, FechaHora, 1, cui, IdArticulo);
+        }
+
+        public void ActualizarRetiroBodega(int Cantidad, DateTime FechaHora, string cui, int IdArticulo, int id)
+        {
+            _retiroBodega.UpdateQuery(Cantidad, FechaHora, 1, cui, IdArticulo, id);
+        }
+
+        public void EliminarRetiroBodega(int id)
+        {
+            _retiroBodega.UpdateDeleteQuery(id);
         }
     }
 }

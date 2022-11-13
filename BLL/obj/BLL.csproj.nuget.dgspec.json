@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj": {}
+    "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj": {
+    "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj",
+        "projectPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\BLL\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj"
+              "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj": {
+    "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Source\\Repos\\BarberShopFinalEntrega1\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",

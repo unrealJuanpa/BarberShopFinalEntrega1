@@ -2,9 +2,10 @@
 <xs:schema id="DataSetBS" targetNamespace="http://tempuri.org/DataSetBS.xsd" xmlns:mstns="http://tempuri.org/DataSetBS.xsd" xmlns="http://tempuri.org/DataSetBS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\DatabaseBS.mdf;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="DatabaseBSConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\juanp\source\repos\BarberShopFinalEntrega1\DB\DatabaseBS.mdf;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Public" Name="DatabaseBSConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Public" Name="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TipoTratamientoTableAdapter" GeneratorDataComponentClassName="TipoTratamientoTableAdapter" Name="TipoTratamiento" UserDataComponentName="TipoTratamientoTableAdapter">
@@ -203,7 +204,7 @@ SELECT IdCliente, NombreCliente, ApellidoCliente, Telefono, Activo FROM Cliente 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RegistroAplicacionTableAdapter" GeneratorDataComponentClassName="RegistroAplicacionTableAdapter" Name="RegistroAplicacion" UserDataComponentName="RegistroAplicacionTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.RegistroAplicacion" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroAplicacion" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[RegistroAplicacion] WHERE (([IdRegistro] = @Original_IdRegistro) AND ([FechaHora] = @Original_FechaHora) AND ([CostoFinal] = @Original_CostoFinal) AND ([Activo] = @Original_Activo) AND ((@IsNull_IdTratamiento = 1 AND [IdTratamiento] IS NULL) OR ([IdTratamiento] = @Original_IdTratamiento)) AND ((@IsNull_IdCliente = 1 AND [IdCliente] IS NULL) OR ([IdCliente] = @Original_IdCliente)) AND ((@IsNull_CUI = 1 AND [CUI] IS NULL) OR ([CUI] = @Original_CUI)))</CommandText>
@@ -277,7 +278,16 @@ SELECT IdRegistro, FechaHora, CostoFinal, Activo, IdTratamiento, IdCliente, CUI 
               <Mapping SourceColumn="IdCliente" DataSetColumn="IdCliente" />
               <Mapping SourceColumn="CUI" DataSetColumn="CUI" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroAplicacion" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdRegistro, FechaHora, CostoFinal, Activo, IdTratamiento, IdCliente, CUI FROM dbo.RegistroAplicacion Where Activo = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PromocionTableAdapter" GeneratorDataComponentClassName="PromocionTableAdapter" Name="Promocion" UserDataComponentName="PromocionTableAdapter">
             <MainSource>
@@ -355,7 +365,7 @@ SELECT IdPromocion, Nombre, ProcentajeDescuento, Descripcion, FechaHoraInicio, F
               <Mapping SourceColumn="IdTratamiento" DataSetColumn="IdTratamiento" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
+              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Promocion.IdPromocion, Promocion.Nombre, Promocion.ProcentajeDescuento, Promocion.Descripcion, Promocion.FechaHoraInicio, Promocion.FechaHoraFin, Promocion.Activo, Promocion.IdTratamiento, TipoTratamiento.Nombre AS Tratamiento
@@ -397,7 +407,7 @@ WHERE (Promocion.Activo = 1)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RolEmpleadoTableAdapter" GeneratorDataComponentClassName="RolEmpleadoTableAdapter" Name="RolEmpleado" UserDataComponentName="RolEmpleadoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.RolEmpleado" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RolEmpleado" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[RolEmpleado] WHERE (([IdRol] = @Original_IdRol) AND ([Nombre] = @Original_Nombre) AND ([Activo] = @Original_Activo))</CommandText>
@@ -449,13 +459,36 @@ SELECT IdRol, Nombre, Descripcion, Activo FROM RolEmpleado WHERE (IdRol = @IdRol
               <Mapping SourceColumn="Activo" DataSetColumn="Activo" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.RolEmpleado" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RolEmpleado" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT IdRol, Nombre, Descripcion, Activo FROM dbo.RolEmpleado Where Activo = 1</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDeleteQuery" Modifier="Public" Name="UpdateDeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateDeleteQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[RolEmpleado] SET [Activo] = 0 WHERE ([IdRol] = @Original_IdRol) </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_IdRol" ColumnName="IdRol" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RolEmpleado" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_IdRol" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdRol" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[RolEmpleado] SET [Nombre] = @Nombre, [Descripcion] = @Descripcion, [Activo] = @Activo WHERE ([IdRol] = @Original_IdRol)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Nombre" ColumnName="Nombre" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RolEmpleado" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Descripcion" ColumnName="Descripcion" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RolEmpleado" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Descripcion" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Activo" ColumnName="Activo" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RolEmpleado" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Activo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Activo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_IdRol" ColumnName="IdRol" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RolEmpleado" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_IdRol" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdRol" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
               </DbSource>
             </Sources>
           </TableAdapter>
@@ -671,7 +704,7 @@ SELECT IdProveedor, Nombre, Telefono, Activo FROM Proveedor WHERE (IdProveedor =
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RegistroCompraTableAdapter" GeneratorDataComponentClassName="RegistroCompraTableAdapter" Name="RegistroCompra" UserDataComponentName="RegistroCompraTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.RegistroCompra" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[RegistroCompra] WHERE (([IdCompra] = @Original_IdCompra) AND ([FechaHora] = @Original_FechaHora) AND ([Unidades] = @Original_Unidades) AND ([CostoTotal] = @Original_CostoTotal) AND ([Activo] = @Original_Activo) AND ((@IsNull_IdArticulo = 1 AND [IdArticulo] IS NULL) OR ([IdArticulo] = @Original_IdArticulo)) AND ((@IsNull_IdProveedor = 1 AND [IdProveedor] IS NULL) OR ([IdProveedor] = @Original_IdProveedor)))</CommandText>
@@ -743,25 +776,60 @@ SELECT IdCompra, FechaHora, Unidades, CostoTotal, Activo, IdArticulo, IdProveedo
               <Mapping SourceColumn="IdArticulo" DataSetColumn="IdArticulo" />
               <Mapping SourceColumn="IdProveedor" DataSetColumn="IdProveedor" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdCompra, FechaHora, Unidades, CostoTotal, Activo, IdArticulo, IdProveedor FROM dbo.RegistroCompra Where Activo = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDeleteQuery" Modifier="Public" Name="UpdateDeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateDeleteQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[RegistroCompra] SET [Activo] = 0 WHERE ([IdCompra] = @Original_IdCompra) </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_IdCompra" ColumnName="IdCompra" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_IdCompra" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdCompra" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[RegistroCompra] SET [FechaHora] = @FechaHora, [Unidades] = @Unidades, [CostoTotal] = @CostoTotal, [Activo] = @Activo, [IdArticulo] = @IdArticulo, [IdProveedor] = @IdProveedor WHERE ([IdCompra] = @Original_IdCompra)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="FechaHora" ColumnName="FechaHora" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@FechaHora" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaHora" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Unidades" ColumnName="Unidades" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Unidades" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Unidades" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="CostoTotal" ColumnName="CostoTotal" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DataTypeServer="float" DbType="Double" Direction="Input" ParameterName="@CostoTotal" Precision="0" ProviderType="Float" Scale="0" Size="8" SourceColumn="CostoTotal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Activo" ColumnName="Activo" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Activo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Activo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="IdArticulo" ColumnName="IdArticulo" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="IdProveedor" ColumnName="IdProveedor" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdProveedor" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdProveedor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_IdCompra" ColumnName="IdCompra" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RegistroCompra" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_IdCompra" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdCompra" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ArticuloTableAdapter" GeneratorDataComponentClassName="ArticuloTableAdapter" Name="Articulo" UserDataComponentName="ArticuloTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.Articulo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Articulo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Articulo] WHERE (([IdArticulo] = @Original_IdArticulo) AND ([Nombre] = @Original_Nombre) AND ([Activo] = @Original_Activo))</CommandText>
+                    <CommandText>DELETE FROM [Articulo] WHERE (([Nombre] = @Original_Nombre) AND ([Activo] = @Original_Activo) AND ([IdArticulo] = @Original_IdArticulo))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Activo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Activo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Articulo] ([Nombre], [Descripcion], [Activo]) VALUES (@Nombre, @Descripcion, @Activo);
-SELECT IdArticulo, Nombre, Descripcion, Activo FROM Articulo WHERE (IdArticulo = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [Articulo] ([Nombre], [Descripcion], [Activo]) VALUES (@Nombre, @Descripcion, @Activo);
+SELECT ABS(IdArticulo) AS Expr1, Nombre, Descripcion, Activo, IdArticulo FROM Articulo WHERE (IdArticulo = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Descripcion" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="Descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -770,23 +838,23 @@ SELECT IdArticulo, Nombre, Descripcion, Activo FROM Articulo WHERE (IdArticulo =
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT IdArticulo, Nombre, Descripcion, Activo FROM dbo.Articulo</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ABS(IdArticulo) AS Expr1, Nombre, Descripcion, Activo, IdArticulo FROM Articulo</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Articulo] SET [Nombre] = @Nombre, [Descripcion] = @Descripcion, [Activo] = @Activo WHERE (([IdArticulo] = @Original_IdArticulo) AND ([Nombre] = @Original_Nombre) AND ([Activo] = @Original_Activo));
-SELECT IdArticulo, Nombre, Descripcion, Activo FROM Articulo WHERE (IdArticulo = @IdArticulo)</CommandText>
+                    <CommandText>UPDATE [Articulo] SET [Nombre] = @Nombre, [Descripcion] = @Descripcion, [Activo] = @Activo WHERE (([Nombre] = @Original_Nombre) AND ([Activo] = @Original_Activo) AND ([IdArticulo] = @Original_IdArticulo));
+SELECT ABS(IdArticulo) AS Expr1, Nombre, Descripcion, Activo, IdArticulo FROM Articulo WHERE (IdArticulo = @IdArticulo)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Descripcion" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="Descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Activo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Activo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Activo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Activo" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="IdArticulo" ColumnName="IdArticulo" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="IdArticulo" ColumnName="IdArticulo" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Articulo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -797,12 +865,46 @@ SELECT IdArticulo, Nombre, Descripcion, Activo FROM Articulo WHERE (IdArticulo =
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
               <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
               <Mapping SourceColumn="Activo" DataSetColumn="Activo" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Articulo" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT *
+FROM     Articulo  WHERE (Activo = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDeleteQuery" Modifier="Public" Name="UpdateDeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateDeleteQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[Articulo] SET [Activo] = 0 WHERE ([IdArticulo] = @Original_IdArticulo) </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_IdArticulo" ColumnName="IdArticulo" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Articulo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[Articulo] SET [Nombre] = @Nombre, [Descripcion] = @Descripcion, [Activo] = @Activo WHERE ([IdArticulo] = @Original_IdArticulo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Nombre" ColumnName="Nombre" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Articulo" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@Nombre" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Nombre" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Descripcion" ColumnName="Descripcion" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Articulo" DataTypeServer="text" DbType="AnsiString" Direction="Input" ParameterName="@Descripcion" Precision="0" ProviderType="Text" Scale="0" Size="2147483647" SourceColumn="Descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Activo" ColumnName="Activo" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Articulo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Activo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Activo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_IdArticulo" ColumnName="IdArticulo" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.Articulo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RetiroBodegaTableAdapter" GeneratorDataComponentClassName="RetiroBodegaTableAdapter" Name="RetiroBodega" UserDataComponentName="RetiroBodegaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DatabaseBSConnectionString" DbObjectName="dbo.RetiroBodega" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RetiroBodega" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[RetiroBodega] WHERE (([IdRetiro] = @Original_IdRetiro) AND ([Cantidad] = @Original_Cantidad) AND ([FechaHora] = @Original_FechaHora) AND ([Activo] = @Original_Activo) AND ((@IsNull_CUI = 1 AND [CUI] IS NULL) OR ([CUI] = @Original_CUI)) AND ((@IsNull_IdArticulo = 1 AND [IdArticulo] IS NULL) OR ([IdArticulo] = @Original_IdArticulo)))</CommandText>
@@ -869,7 +971,41 @@ SELECT IdRetiro, Cantidad, FechaHora, Activo, CUI, IdArticulo FROM RetiroBodega 
               <Mapping SourceColumn="CUI" DataSetColumn="CUI" />
               <Mapping SourceColumn="IdArticulo" DataSetColumn="IdArticulo" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RetiroBodega" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByActivo" GetMethodModifier="Public" GetMethodName="GetDataByActivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByActivo" UserSourceName="GetDataByActivo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IdRetiro, Cantidad, FechaHora, Activo, CUI, IdArticulo FROM dbo.RetiroBodega WHERE Activo = 1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDeleteQuery" Modifier="Public" Name="UpdateDeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateDeleteQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[RetiroBodega] SET [Activo] = 0 WHERE ([IdRetiro] = @Original_IdRetiro) </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_IdRetiro" ColumnName="IdRetiro" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RetiroBodega" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_IdRetiro" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdRetiro" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="desktop-vbkqust\localdb#5ce205a2.C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF.dbo" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE [dbo].[RetiroBodega] SET [Cantidad] = @Cantidad, [FechaHora] = @FechaHora, [Activo] = @Activo, [CUI] = @CUI, [IdArticulo] = @IdArticulo WHERE ([IdRetiro] = @Original_IdRetiro) </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Cantidad" ColumnName="Cantidad" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RetiroBodega" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Cantidad" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Cantidad" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="FechaHora" ColumnName="FechaHora" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RetiroBodega" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@FechaHora" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaHora" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Activo" ColumnName="Activo" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RetiroBodega" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Activo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Activo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CUI" ColumnName="CUI" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RetiroBodega" DataTypeServer="varchar(200)" DbType="AnsiString" Direction="Input" ParameterName="@CUI" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="CUI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="IdArticulo" ColumnName="IdArticulo" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RetiroBodega" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdArticulo" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdArticulo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Original_IdRetiro" ColumnName="IdRetiro" DataSourceName="[C:\USERS\ACER\SOURCE\REPOS\BARBERSHOPFINALENTREGA1\DB\DATABASEBS.MDF].dbo.RetiroBodega" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Original_IdRetiro" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="IdRetiro" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -1072,6 +1208,7 @@ SELECT IdRetiro, Cantidad, FechaHora, Activo, CUI, IdArticulo FROM RetiroBodega 
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Activo" msprop:Generator_ColumnPropNameInTable="ActivoColumn" msprop:Generator_ColumnPropNameInRow="Activo" msprop:Generator_UserColumnName="Activo" msprop:Generator_ColumnVarNameInTable="columnActivo" type="xs:int" />
+              <xs:element name="Expr1" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_UserColumnName="Expr1" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1138,15 +1275,15 @@ SELECT IdRetiro, Cantidad, FechaHora, Activo, CUI, IdArticulo FROM RetiroBodega 
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Relationship2" msdata:parent="TipoTratamiento" msdata:child="RegistroAplicacion" msdata:parentkey="IdTratamiento" msdata:childkey="IdTratamiento" msprop:Generator_UserParentTable="TipoTratamiento" msprop:Generator_UserChildTable="RegistroAplicacion" msprop:Generator_RelationVarName="relationRelationship2" msprop:Generator_ChildPropName="GetRegistroAplicacionRows" msprop:Generator_UserRelationName="Relationship2" msprop:Generator_ParentPropName="TipoTratamientoRow" />
-      <msdata:Relationship name="Relationship3" msdata:parent="Cliente" msdata:child="RegistroAplicacion" msdata:parentkey="IdCliente" msdata:childkey="IdCliente" msprop:Generator_UserParentTable="Cliente" msprop:Generator_UserChildTable="RegistroAplicacion" msprop:Generator_RelationVarName="relationRelationship3" msprop:Generator_ChildPropName="GetRegistroAplicacionRows" msprop:Generator_UserRelationName="Relationship3" msprop:Generator_ParentPropName="ClienteRow" />
-      <msdata:Relationship name="Relationship1" msdata:parent="TipoTratamiento" msdata:child="Promocion" msdata:parentkey="IdTratamiento" msdata:childkey="IdTratamiento" msprop:Generator_UserParentTable="TipoTratamiento" msprop:Generator_UserChildTable="Promocion" msprop:Generator_RelationVarName="relationRelationship1" msprop:Generator_ChildPropName="GetPromocionRows" msprop:Generator_UserRelationName="Relationship1" msprop:Generator_ParentPropName="TipoTratamientoRow" />
-      <msdata:Relationship name="Relationship4" msdata:parent="Empleado" msdata:child="RegistroAplicacion" msdata:parentkey="CUI" msdata:childkey="CUI" msprop:Generator_UserParentTable="Empleado" msprop:Generator_UserChildTable="RegistroAplicacion" msprop:Generator_RelationVarName="relationRelationship4" msprop:Generator_ChildPropName="GetRegistroAplicacionRows" msprop:Generator_ParentPropName="EmpleadoRow" msprop:Generator_UserRelationName="Relationship4" />
-      <msdata:Relationship name="Relationship5" msdata:parent="RolEmpleado" msdata:child="Empleado" msdata:parentkey="IdRol" msdata:childkey="IdRol" msprop:Generator_UserParentTable="RolEmpleado" msprop:Generator_UserChildTable="Empleado" msprop:Generator_RelationVarName="relationRelationship5" msprop:Generator_ChildPropName="GetEmpleadoRows" msprop:Generator_UserRelationName="Relationship5" msprop:Generator_ParentPropName="RolEmpleadoRow" />
-      <msdata:Relationship name="Relationship9" msdata:parent="Proveedor" msdata:child="RegistroCompra" msdata:parentkey="IdProveedor" msdata:childkey="IdProveedor" msprop:Generator_UserParentTable="Proveedor" msprop:Generator_UserChildTable="RegistroCompra" msprop:Generator_RelationVarName="relationRelationship9" msprop:Generator_ChildPropName="GetRegistroCompraRows" msprop:Generator_UserRelationName="Relationship9" msprop:Generator_ParentPropName="ProveedorRow" />
-      <msdata:Relationship name="Relationship8" msdata:parent="Articulo" msdata:child="RegistroCompra" msdata:parentkey="IdArticulo" msdata:childkey="IdArticulo" msprop:Generator_UserParentTable="Articulo" msprop:Generator_UserChildTable="RegistroCompra" msprop:Generator_RelationVarName="relationRelationship8" msprop:Generator_ChildPropName="GetRegistroCompraRows" msprop:Generator_ParentPropName="ArticuloRow" msprop:Generator_UserRelationName="Relationship8" />
-      <msdata:Relationship name="Relationship6" msdata:parent="Empleado" msdata:child="RetiroBodega" msdata:parentkey="CUI" msdata:childkey="CUI" msprop:Generator_UserParentTable="Empleado" msprop:Generator_UserChildTable="RetiroBodega" msprop:Generator_RelationVarName="relationRelationship6" msprop:Generator_ChildPropName="GetRetiroBodegaRows" msprop:Generator_UserRelationName="Relationship6" msprop:Generator_ParentPropName="EmpleadoRow" />
-      <msdata:Relationship name="Relationship7" msdata:parent="Articulo" msdata:child="RetiroBodega" msdata:parentkey="IdArticulo" msdata:childkey="IdArticulo" msprop:Generator_UserParentTable="Articulo" msprop:Generator_UserChildTable="RetiroBodega" msprop:Generator_RelationVarName="relationRelationship7" msprop:Generator_ChildPropName="GetRetiroBodegaRows" msprop:Generator_UserRelationName="Relationship7" msprop:Generator_ParentPropName="ArticuloRow" />
+      <msdata:Relationship name="Relationship2" msdata:parent="TipoTratamiento" msdata:child="RegistroAplicacion" msdata:parentkey="IdTratamiento" msdata:childkey="IdTratamiento" msprop:Generator_UserParentTable="TipoTratamiento" msprop:Generator_UserChildTable="RegistroAplicacion" msprop:Generator_RelationVarName="relationRelationship2" msprop:Generator_ChildPropName="GetRegistroAplicacionRows" msprop:Generator_ParentPropName="TipoTratamientoRow" msprop:Generator_UserRelationName="Relationship2" />
+      <msdata:Relationship name="Relationship3" msdata:parent="Cliente" msdata:child="RegistroAplicacion" msdata:parentkey="IdCliente" msdata:childkey="IdCliente" msprop:Generator_UserParentTable="Cliente" msprop:Generator_UserChildTable="RegistroAplicacion" msprop:Generator_RelationVarName="relationRelationship3" msprop:Generator_ChildPropName="GetRegistroAplicacionRows" msprop:Generator_ParentPropName="ClienteRow" msprop:Generator_UserRelationName="Relationship3" />
+      <msdata:Relationship name="Relationship1" msdata:parent="TipoTratamiento" msdata:child="Promocion" msdata:parentkey="IdTratamiento" msdata:childkey="IdTratamiento" msprop:Generator_UserParentTable="TipoTratamiento" msprop:Generator_UserChildTable="Promocion" msprop:Generator_RelationVarName="relationRelationship1" msprop:Generator_ChildPropName="GetPromocionRows" msprop:Generator_ParentPropName="TipoTratamientoRow" msprop:Generator_UserRelationName="Relationship1" />
+      <msdata:Relationship name="Relationship4" msdata:parent="Empleado" msdata:child="RegistroAplicacion" msdata:parentkey="CUI" msdata:childkey="CUI" msprop:Generator_UserParentTable="Empleado" msprop:Generator_UserChildTable="RegistroAplicacion" msprop:Generator_RelationVarName="relationRelationship4" msprop:Generator_ChildPropName="GetRegistroAplicacionRows" msprop:Generator_UserRelationName="Relationship4" msprop:Generator_ParentPropName="EmpleadoRow" />
+      <msdata:Relationship name="Relationship5" msdata:parent="RolEmpleado" msdata:child="Empleado" msdata:parentkey="IdRol" msdata:childkey="IdRol" msprop:Generator_UserParentTable="RolEmpleado" msprop:Generator_UserChildTable="Empleado" msprop:Generator_RelationVarName="relationRelationship5" msprop:Generator_ChildPropName="GetEmpleadoRows" msprop:Generator_ParentPropName="RolEmpleadoRow" msprop:Generator_UserRelationName="Relationship5" />
+      <msdata:Relationship name="Relationship9" msdata:parent="Proveedor" msdata:child="RegistroCompra" msdata:parentkey="IdProveedor" msdata:childkey="IdProveedor" msprop:Generator_UserParentTable="Proveedor" msprop:Generator_UserChildTable="RegistroCompra" msprop:Generator_RelationVarName="relationRelationship9" msprop:Generator_ChildPropName="GetRegistroCompraRows" msprop:Generator_ParentPropName="ProveedorRow" msprop:Generator_UserRelationName="Relationship9" />
+      <msdata:Relationship name="Relationship8" msdata:parent="Articulo" msdata:child="RegistroCompra" msdata:parentkey="IdArticulo" msdata:childkey="IdArticulo" msprop:Generator_UserParentTable="Articulo" msprop:Generator_UserChildTable="RegistroCompra" msprop:Generator_RelationVarName="relationRelationship8" msprop:Generator_ChildPropName="GetRegistroCompraRows" msprop:Generator_UserRelationName="Relationship8" msprop:Generator_ParentPropName="ArticuloRow" />
+      <msdata:Relationship name="Relationship6" msdata:parent="Empleado" msdata:child="RetiroBodega" msdata:parentkey="CUI" msdata:childkey="CUI" msprop:Generator_UserParentTable="Empleado" msprop:Generator_UserChildTable="RetiroBodega" msprop:Generator_RelationVarName="relationRelationship6" msprop:Generator_ChildPropName="GetRetiroBodegaRows" msprop:Generator_ParentPropName="EmpleadoRow" msprop:Generator_UserRelationName="Relationship6" />
+      <msdata:Relationship name="Relationship7" msdata:parent="Articulo" msdata:child="RetiroBodega" msdata:parentkey="IdArticulo" msdata:childkey="IdArticulo" msprop:Generator_UserParentTable="Articulo" msprop:Generator_UserChildTable="RetiroBodega" msprop:Generator_RelationVarName="relationRelationship7" msprop:Generator_ChildPropName="GetRetiroBodegaRows" msprop:Generator_ParentPropName="ArticuloRow" msprop:Generator_UserRelationName="Relationship7" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

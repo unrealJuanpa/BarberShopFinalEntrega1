@@ -85,5 +85,29 @@ namespace WinUI
         {
             this.Dispose();
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            ArticuloForm articuloForm = new ArticuloForm();
+            articuloForm.ShowDialog();
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            RolEmpleadoForm rolEmpleadoForm = new RolEmpleadoForm();
+            rolEmpleadoForm.ShowDialog();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            RegistroCompraForm registroCompraForm = new RegistroCompraForm();
+            registroCompraForm.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ContenedorRetiroBodegaForm contenedorRetiroBodegaForm = new ContenedorRetiroBodegaForm();
+            contenedorRetiroBodegaForm.ShowDialog();
+        }
     }
 }
