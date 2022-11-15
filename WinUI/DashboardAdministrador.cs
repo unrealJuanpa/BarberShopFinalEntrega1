@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -108,6 +109,11 @@ namespace WinUI
         {
             ContenedorRetiroBodegaForm contenedorRetiroBodegaForm = new ContenedorRetiroBodegaForm();
             contenedorRetiroBodegaForm.ShowDialog();
+        }
+
+        private void button6_Click_2(object sender, EventArgs e)
+        {
+            Process.Start("python C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\API\\main.py");
         }
     }
 }
