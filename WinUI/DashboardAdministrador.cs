@@ -1,4 +1,6 @@
 ﻿using BLL;
+using IronPython.Hosting;
+using Microsoft.Scripting.Hosting;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -113,7 +115,8 @@ namespace WinUI
 
         private void button6_Click_2(object sender, EventArgs e)
         {
-            Process.Start("python C:\\Users\\Acer\\source\\repos\\BarberShopFinalEntrega1\\API\\main.py");
+            ScriptEngine engine = Python.CreateEngine();
+            Process.Start(@"C:\Python310\python.exe", @"C:\papita.py");
         }
     }
 }
